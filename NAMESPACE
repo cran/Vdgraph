@@ -1,0 +1,4 @@
+useDynLib(Vdgraph)
+
+export(Vdgraph
+       )

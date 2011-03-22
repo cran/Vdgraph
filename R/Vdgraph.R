@@ -1,0 +1,49 @@
+Vdgraph <-
+function(des) 
+{
+  rc<-dim(des)
+  ndpts<-rc[1]
+   if (ndpts>99) {
+         cat("The number of runs in the design matrix is too large","\n")
+         } else {
+         kvar1<-rc[2]
+         }
+      check=1+2*kvar1+kvar1*(kvar1-1)/2
+       if (ndpts<check) {
+         stop("The number of design points will not allow estimation of the quadratic model","\n")
+         } else {
+         kdv1<-ndpts*kvar1
+         }
+    rdes<-des
+    dim(rdes)<-ndpts*kvar1
+cat("number of design points=",ndpts,"\n")
+cat("number of factors=",kvar1,"\n")
+v<-Vardsgr(ndpts,kvar1,kdv1,rdes)
+vdgr<-matrix(v,ncol=4)
+colnames(vdgr)<-c("Radius","Maximum","Minimum","Average")
+#modifies plot region
+par(mai=c(2.5,.75,.5,.25))
+#Creates the plot region
+maxy=max(vdgr[,2])
+aminy<-min(vdgr[,3])
+miny=0
+maxx=sqrt(kvar1)
+#cat("maxy=",maxy,"\n")
+#cat("aminy=",aminy,"\n")
+#cat("miny=",miny,"\n")
+#cat("maxx=",maxx,"\n")
+plot(c(0,maxx),c(miny,maxy),type="n",ylab="Variance",xlab="Radius",
+     main="Variance Dispersion Graph")
+#Adds the line for maximum variance
+lines(vdgr[,1],vdgr[,2],lty=2,col="red")
+#Adds the line for minimum variance
+lines(vdgr[,1],vdgr[,3],lty=4,col="blue")
+#Adds the line for average variance
+lines(vdgr[,1],vdgr[,4],lty=1,col="black")
+#Adds the legend
+legend("topleft",inset=.02,legend=,c("Max","Min","Avg"),lty=(c(2,4,1)),col=(c("red","blue","black")))
+#gets default graphic parameters
+defpar<-par()
+return(vdgr)
+}
+
