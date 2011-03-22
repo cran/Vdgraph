@@ -1272,7 +1272,7 @@ C
        DO 11 J=1,N
         IF(DABS(A(I,J)).GT.AAMAX) AAMAX=DABS(A(I,J))
 11     CONTINUE
-       IF(AAMAX.EQ.0) WRITE(*,20)
+C       IF(AAMAX.EQ.0) WRITE(*,20)
        VV(I)=1.0D0/AAMAX
 12    CONTINUE
       DO 19 J=1,N

@@ -11,7 +11,7 @@ the plot.
 Vdgraph(des)
 }
 \arguments{
-  \item{des}{ des is a matrix containing a response surface design in coded units. 
+  \item{des}{ des is a matrix or a data frame containing a response surface design in coded  or uncoded units. 
 There should be one column for each factor in the design, and one row for each run in the design. 
 The maximum number of rows allowed is 99, and the maximum number of columns is 7.}
 }
@@ -40,7 +40,6 @@ Vdgraph(des)
 
 dat<-ccd(~A+B,generators=B~A,n0=c(1,1),alpha=1.212,wbreps=1)
 des2<-dat[,2:3]
-des2<-as.matrix(des2)
 Vdgraph(des2)
 
 }
