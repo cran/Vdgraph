@@ -38,7 +38,7 @@ colnames(vdgr)<-c("Radius","Maximum","Minimum","Average")
 		        vdgr[k,2]<-vdgr[k,4]}}
 				      }
 #modifies plot region
-par(mai=c(2.5,.75,.5,.25))
+par(mai=c(1.0,.75,1.0,.25))
 #Creates the plot region
 maxy=max(vdgr[,2])
 aminy<-min(vdgr[,3])

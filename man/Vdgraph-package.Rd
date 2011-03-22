@@ -4,9 +4,9 @@
 \title{
 This package creates variance dispersion graphs for response surface designs
 }
-\description{The \pkg{Vdgraph} package provides a function for creating Variance Dispersion Graphs of a standardized response surface design stored in a matrix. 
+\description{The \pkg{Vdgraph} package provides a function for creating Variance Dispersion Graphs of a standardized response surface design stored in a matrix or a data frame. 
 
-The function \code{Vdgraph(des)} creates the graph of the response surface design stored in the matrix \code{des}. Useful response surface designs are also included as matricies in the package. These inclued the hexagonal design for two factors \code{Hex2}, the small composite designs for 3 to 6 factors and Roquemore's hybrid designs for 3 to 6 factors.
+The function \code{Vdgraph(des)} creates the graph of the response surface design stored in the matrix or data frame \code{des}. Useful response surface designs are also included as matricies in the package. These include the hexagonal design for two factors \code{Hex2}, the small composite designs for 3 to 6 factors and Roquemore's hybrid designs for 3 to 6 factors. The function Compare2Vdg makes the variance dispersion graphs of two designs on the same scale for comparison.
 
 }
 

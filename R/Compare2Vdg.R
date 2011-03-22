@@ -1,12 +1,15 @@
 Compare2Vdg <-
-function(name1,des,name2,des2) 
+function(des,des2,name1=deparse(substitute(des)),name2=deparse(substitute(des2)),ncolleg=1) 
 {
+#Check to see of ncolleg is 1 or 2
+if(!(ncolleg !=1 | ncolleg !=2))
+  stop("ncolleg, the number of columns in the legend must be set equal to 1 or 2","\n")
 #Check if names are too long for the legend
 cn1<-nchar(name1)
 cn2<-nchar(name2)
 mcn<-max(cn1,cn2)
   if(mcn>40) {
-    stop("The character strings are too long to fit in the legend","\n")
+    stop("The name character strings are too long to fit in the legend","\n")
              }
 #Next check if des is a data frame, and if so convert it to a matrix
   if(is.data.frame(des)) des<-as.matrix(des)
@@ -21,7 +24,7 @@ mcn<-max(cn1,cn2)
          kvar1<-rc[2]
          }
       check=1+2*kvar1+kvar1*(kvar1-1)/2
-       if (ndpts<check) {
+       if (ndpts<check){
          stop("The number of design points will not allow estimation of the quadratic model","\n")
          } else {
          kdv1<-ndpts*kvar1
@@ -118,7 +121,7 @@ Aname2<-paste("Avg(",name2,")",sep="")
 
 ##Adds the legend
 legend(0,-ledy,legend=c(Xname1,Nname1,Aname1,Xname2,Nname2,Aname2),lty=(c(2,4,1,2,4,1)),
-col=(c("royalblue","darkblue","blue","red","darkred","magenta")))
+col=(c("royalblue","darkblue","blue","red","darkred","magenta")),ncol=ncolleg)
 
 }
 

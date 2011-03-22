@@ -28,4 +28,4 @@ Journal of Quality Technology, Vol 25, No. 1, pp. 45-58, 1993.
 }
 \note{ This function is called by the function Vdgraph.}
 \author{ John S. Lawson \email{lawson@byu.edu}}
-\keyword{}
+\keyword{interface}

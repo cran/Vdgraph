@@ -14,4 +14,4 @@ f(x)
 
 \note{ This function is called by the function Vdgraph.}
 \author{ John S. Lawson \email{lawson@byu.edu}}
-\keyword{}
+\keyword{datagen}

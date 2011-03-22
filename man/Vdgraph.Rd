@@ -32,15 +32,7 @@ pp 333-335. 1993.
 data(D310)
 Vdgraph(D310)
 
-library(rsm)
-bbhrsm<-bbd(4,n0=3)
-des<-bbhrsm[,2:5]
-des<-as.matrix(des)
-Vdgraph(des)
 
-dat<-ccd(~A+B,generators=B~A,n0=c(1,1),alpha=1.212,wbreps=1)
-des2<-dat[,2:3]
-Vdgraph(des2)
 
 }
-\keyword{ }
+\keyword{hplot }
