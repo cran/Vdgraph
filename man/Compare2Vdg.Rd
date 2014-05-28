@@ -42,7 +42,7 @@ pp 333-335. 1993.
 
 data(SCDH5)
 data(SCDDL5)
-Compare2Vdg(SCDH5,SCDDL5,"Hartley's Small Composite-5 fac","Draper and Lin's Small Composite-5 fac",ncolleg=1)
+Compare2Vdg(SCDH5,SCDDL5,"Hartley's SCD-5","Draper-Lin's SCD-5 fac",ncolleg=1)
 
 
 

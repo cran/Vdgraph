@@ -1,5 +1,7 @@
 useDynLib(Vdgraph)
 
 export(Vdgraph,
-      Compare2Vdg
+      Compare2Vdg,
+      FDSPlot,
+      Compare2FDS
        )
