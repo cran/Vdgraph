@@ -1,18 +1,18 @@
 Package: Vdgraph
 Type: Package
-Title: This package creates variance dispersion graphs and fraction of
-        design space plots for response surface designs
-Version: 2.2-1
-Date: 2014-05-28
-Author: John Lawson <lawson@byu.edu>
+Title: Variance dispersion graphs and Fraction of design space plots
+        for response surface designs
+Version: 2.2-2
+Date: 2014-12-12
+Author: John Lawson <lawson@byu.edu>, with contributions from G. Vining
 Maintainer: John Lawson <lawson@byu.edu>
-Description: This package calls a modification of the published FORTRAN code for producing variance dispersion graphs. For more details on variance dispersion graphs see "A Computer Program for Generating Variance Dispersion Graphs" by G. Vining, Journal of Quality Technology, Vol. 25 No. 1 January 1993. 
+Description: Uses a modification of the published FORTRAN code in "A Computer Program for Generating Variance Dispersion Graphs" by G. Vining, Journal of Quality Technology, Vol. 25 No. 1 January 1993, to produce variance dispersion graphs. Also produces fraction of design space plots, and contains data frames for several minimal run response surface designs. 
 License: GPL-2
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: daewr
-Repository/R-Forge/Revision: 83
-Repository/R-Forge/DateTimeStamp: 2014-07-03 19:00:33
-Date/Publication: 2014-08-15 07:15:41
-Packaged: 2014-07-03 20:15:34 UTC; rforge
+Repository/R-Forge/Revision: 98
+Repository/R-Forge/DateTimeStamp: 2014-12-12 20:23:39
+Date/Publication: 2014-12-13 00:05:39
+Packaged: 2014-12-12 20:45:10 UTC; rforge
 NeedsCompilation: yes
