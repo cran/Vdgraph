@@ -87,7 +87,7 @@ colnames(vdgr2)<-c("Radius","Maximum","Minimum","Average")
 				      }
 
 #modifies plot region
-par(xpd=TRUE,mai=c(2.5,.75,.5,.25))
+graphics::par(xpd=TRUE,mai=c(2.5,.75,.5,.25))
 #Creates the plot region
 maxy1=max(vdgr[,2])
 maxy2=max(vdgr2[,2])
@@ -100,17 +100,17 @@ maxx=sqrt(kvar1)
 plot(c(0,maxx),c(miny,maxy),type="n",ylab="Scaled Variance",xlab="Radius",
      main="Variance Dispersion Graph")
 #Adds the line for maximum variance of des
-lines(vdgr[,1],vdgr[,2],lty=2,col="royalblue")
+graphics::lines(vdgr[,1],vdgr[,2],lty=2,col="royalblue")
 #Adds the line for minimum variance of des
-lines(vdgr[,1],vdgr[,3],lty=4,col="darkblue")
+graphics::lines(vdgr[,1],vdgr[,3],lty=4,col="darkblue")
 #Adds the line for average variance of des
-lines(vdgr[,1],vdgr[,4],lty=1,col="blue")
+graphics::lines(vdgr[,1],vdgr[,4],lty=1,col="blue")
 #Adds the line for maximum variance of des2
-lines(vdgr[,1],vdgr2[,2],lty=2,col="red")
+graphics::lines(vdgr[,1],vdgr2[,2],lty=2,col="red")
 #Adds the line for minimum variance of des2
-lines(vdgr[,1],vdgr2[,3],lty=4,col="darkred")
+graphics::lines(vdgr[,1],vdgr2[,3],lty=4,col="darkred")
 #Adds the line for average variance of des2
-lines(vdgr[,1],vdgr2[,4],lty=1,col="magenta")
+graphics::lines(vdgr[,1],vdgr2[,4],lty=1,col="magenta")
 # makes names for legend
 Xname1<-paste("Max(",name1,")",sep="")
 Nname1<-paste("Min(",name1,")",sep="")
@@ -120,7 +120,7 @@ Nname2<-paste("Min(",name2,")",sep="")
 Aname2<-paste("Avg(",name2,")",sep="")
 
 ##Adds the legend
-legend(0,-ledy,legend=c(Xname1,Nname1,Aname1,Xname2,Nname2,Aname2),lty=(c(2,4,1,2,4,1)),
+graphics::legend(0,-ledy,legend=c(Xname1,Nname1,Aname1,Xname2,Nname2,Aname2),lty=(c(2,4,1,2,4,1)),
 col=(c("royalblue","darkblue","blue","red","darkred","magenta")),ncol=ncolleg)
 
 }

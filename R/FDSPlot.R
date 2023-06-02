@@ -36,39 +36,39 @@ FDSPlot <- function(des, mod=2)
                }
 des<-as.data.frame(des)
 # get the model
-y<-runif(nrow(des),0,1)
+y<-stats::runif(nrow(des),0,1)
 ### Case for two variables #############
  if(kvar1==2) {
 names<-list("x1","x2")
 names(des)<-names
-lmod<-lm(y~x1+x2,data=des)
-imod<-lm(y~x1+x2+x1:x2,data=des)
-qmod<-lm(y~x1+x2+I(x1^2)+I(x2^2)+x1:x2,data=des)
+lmod<-stats::lm(y~x1+x2,data=des)
+imod<-stats::lm(y~x1+x2+x1:x2,data=des)
+qmod<-stats::lm(y~x1+x2+I(x1^2)+I(x2^2)+x1:x2,data=des)
 
  if(mod==0){
-X<-model.matrix(lmod)
+X<-stats::model.matrix(lmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
 fX<-cbind(Int,X1,X2)
            }
 
  if(mod==1){
-X<-model.matrix(imod)
+X<-stats::model.matrix(imod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
 X1X2<-X1*X2
 fX<-cbind(Int,X1,X2,X1X2)
            }
  if(mod==2){
-X<-model.matrix(qmod)
+X<-stats::model.matrix(qmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
 X1sq<-X1*X1
 X2sq<-X2*X2
 X1X2<-X1*X2
@@ -79,28 +79,28 @@ fX<-cbind(Int,X1,X2,X1sq,X2sq,X1X2)
  if(kvar1==3)    {
 names<-list("x1","x2","x3")
 names(des)<-names
-lmod<-lm(y~x1+x2+x3,data=des)
-imod<-lm(y~x1+x2+x3+x1:x2+x1:x3+x2:x3,data=des)
-qmod<-lm(y~x1+x2+x3+I(x1^2)+I(x2^2)+I(x3^2)+x1:x2+x1:x3+x2:x3,data=des)
+lmod<-stats::lm(y~x1+x2+x3,data=des)
+imod<-stats::lm(y~x1+x2+x3+x1:x2+x1:x3+x2:x3,data=des)
+qmod<-stats::lm(y~x1+x2+x3+I(x1^2)+I(x2^2)+I(x3^2)+x1:x2+x1:x3+x2:x3,data=des)
              
 #get the design matrix and fX
  if(mod==0) {
-X<-model.matrix(lmod)
+X<-stats::model.matrix(lmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
 fX<-cbind(Int,X1,X2,X3)
              }
 
  if(mod==1)  {
-X<-model.matrix(imod)
+X<-stats::model.matrix(imod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
 X1X2<-X1*X2
 X1X3<-X1*X3
 X2X3<-X2*X3
@@ -108,12 +108,12 @@ fX<-cbind(Int,X1,X2,X3,X1X2,X1X3,X2X3)
             }
 
  if(mod==2) {
-X<-model.matrix(qmod)
+X<-stats::model.matrix(qmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
 X1sq<-X1*X1
 X2sq<-X2*X2
 X3sq<-X3*X3
@@ -128,30 +128,30 @@ fX<-cbind(Int,X1,X2,X3,X1sq,X2sq,X3sq,X1X2,X1X3,X2X3)
  if(kvar1==4)    {
 names<-list("x1","x2","x3","x4")
 names(des)<-names
-lmod<-lm(y~x1+x2+x3+x4,data=des)
-imod<-lm(y~x1+x2+x3+x4+x1:x2+x1:x3+x1:x4+x2:x3+x2:x4+x3:x4,data=des)
-qmod<-lm(y~x1+x2+x3+x4+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+x1:x2+x1:x3+x1:x4+x2:x3+x2:x4+x3:x4,data=des)
+lmod<-stats::lm(y~x1+x2+x3+x4,data=des)
+imod<-stats::lm(y~x1+x2+x3+x4+x1:x2+x1:x3+x1:x4+x2:x3+x2:x4+x3:x4,data=des)
+qmod<-stats::lm(y~x1+x2+x3+x4+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+x1:x2+x1:x3+x1:x4+x2:x3+x2:x4+x3:x4,data=des)
              
 #get the design matrix and fX
  if(mod==0) {
-X<-model.matrix(lmod)
+X<-stats::model.matrix(lmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
 fX<-cbind(Int,X1,X2,X3,X4)
              }
 
  if(mod==1)  {
-X<-model.matrix(imod)
+X<-stats::model.matrix(imod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
 X1X2<-X1*X2
 X1X3<-X1*X3
 X1X4<-X1*X4
@@ -161,13 +161,13 @@ X3X4<-X3*X4
 fX<-cbind(Int,X1,X2,X3,X4,X1X2,X1X3,X1X4,X2X3,X2X4,X3X4)
             }
  if(mod==2) {
-X<-model.matrix(qmod)
+X<-stats::model.matrix(qmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
 X1sq<-X1*X1
 X2sq<-X2*X2
 X3sq<-X3*X3
@@ -185,32 +185,32 @@ fX<-cbind(Int,X1,X2,X3,X4,X1sq,X2sq,X3sq,X4sq,X1X2,X1X3,X1X4,X2X3,X2X4,X3X4)
  if(kvar1==5)    {
 names<-list("x1","x2","x3","x4","x5")
 names(des)<-names
-lmod<-lm(y~x1+x2+x3+x4+x5,data=des)
-imod<-lm(y~x1+x2+x3+x4+x5+x1:x2+x1:x3+x1:x4+x1:x5+x2:x3+x2:x4+x2:x5+x3:x4+x3:x5+x4:x5,data=des)
-qmod<-lm(y~x1+x2+x3+x4+x5+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+I(x5^2)+x1:x2+x1:x3+x1:x4+x1:x5+x2:x3+x2:x4+x2:x5+x3:x4+x3:x5+x4:x5,data=des)
+lmod<-stats::lm(y~x1+x2+x3+x4+x5,data=des)
+imod<-stats::lm(y~x1+x2+x3+x4+x5+x1:x2+x1:x3+x1:x4+x1:x5+x2:x3+x2:x4+x2:x5+x3:x4+x3:x5+x4:x5,data=des)
+qmod<-stats::lm(y~x1+x2+x3+x4+x5+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+I(x5^2)+x1:x2+x1:x3+x1:x4+x1:x5+x2:x3+x2:x4+x2:x5+x3:x4+x3:x5+x4:x5,data=des)
              
 #get the design matrix and fX
  if(mod==0) {
-X<-model.matrix(lmod)
+X<-stats::model.matrix(lmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
 fX<-cbind(Int,X1,X2,X3,X4,X5)
              }
 
  if(mod==1)  {
-X<-model.matrix(imod)
+X<-stats::model.matrix(imod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
 X1X2<-X1*X2
 X1X3<-X1*X3
 X1X4<-X1*X4
@@ -224,14 +224,14 @@ X4X5<-X4*X5
 fX<-cbind(Int,X1,X2,X3,X4,+X5+X1X2,X1X3,X1X4,X1X5,X2X3,X2X4,X2X5,X3X4,X3X5,X4X5)
             }
  if(mod==2) {
-X<-model.matrix(qmod)
+X<-stats::model.matrix(qmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
 X1sq<-X1*X1
 X2sq<-X2*X2
 X3sq<-X3*X3
@@ -254,34 +254,34 @@ fX<-cbind(Int,X1,X2,X3,X4,X5,X1sq,X2sq,X3sq,X4sq,X5sq,X1X2,X1X3,X1X4,X1X5,X2X3,X
  if(kvar1==6)    {
 names<-list("x1","x2","x3","x4","x5","x6")
 names(des)<-names
-lmod<-lm(y~x1+x2+x3+x4+x5+x6,data=des)
-imod<-lm(y~x1+x2+x3+x4+x5+x6+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x2:x3+x2:x4+x2:x5+x2:x6+x3:x4+x3:x5+x3:x6+x4:x5+x4:x6+x5:x6,data=des)
-qmod<-lm(y~x1+x2+x3+x4+x5+x6+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+I(x5^2)+I(x6^2)+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x2:x3+x2:x4+x2:x5+x2:x6+x3:x4+x3:x5+x3:x6+x4:x5+x4:x6+x5:x6,data=des)
+lmod<-stats::lm(y~x1+x2+x3+x4+x5+x6,data=des)
+imod<-stats::lm(y~x1+x2+x3+x4+x5+x6+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x2:x3+x2:x4+x2:x5+x2:x6+x3:x4+x3:x5+x3:x6+x4:x5+x4:x6+x5:x6,data=des)
+qmod<-stats::lm(y~x1+x2+x3+x4+x5+x6+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+I(x5^2)+I(x6^2)+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x2:x3+x2:x4+x2:x5+x2:x6+x3:x4+x3:x5+x3:x6+x4:x5+x4:x6+x5:x6,data=des)
              
 #get the design matrix and fX
  if(mod==0) {
-X<-model.matrix(lmod)
+X<-stats::model.matrix(lmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
-X6<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
+X6<-stats::runif(5000,-1,1)
 fX<-cbind(Int,X1,X2,X3,X4,X5,X6)
              }
 
  if(mod==1)  {
-X<-model.matrix(imod)
+X<-stats::model.matrix(imod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
-X6<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
+X6<-stats::runif(5000,-1,1)
 X1X2<-X1*X2
 X1X3<-X1*X3
 X1X4<-X1*X4
@@ -300,15 +300,15 @@ X5X6<-X5*X6
 fX<-cbind(Int,X1,X2,X3,X4,X5,X6,X1X2,X1X3,X1X4,X1X5,X1X6,X2X3,X2X4,X2X5,X2X6,X3X4,X3X5,X3X6,X4X5,X4X6,X5X6)
             }
  if(mod==2) {
-X<-model.matrix(qmod)
+X<-stats::model.matrix(qmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
-X6<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
+X6<-stats::runif(5000,-1,1)
 X1sq<-X1*X1
 X2sq<-X2*X2
 X3sq<-X3*X3
@@ -337,36 +337,36 @@ fX<-cbind(Int,X1,X2,X3,X4,X5,X6,X1sq,X2sq,X3sq,X4sq,X5sq,X6sq,X1X2,X1X3,X1X4,X1X
  if(kvar1==7)    {
 names<-list("x1","x2","x3","x4","x5","x6","x7")
 names(des)<-names
-lmod<-lm(y~x1+x2+x3+x4+x5+x6+x7,data=des)
-imod<-lm(y~x1+x2+x3+x4+x5+x6+x7+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x1:x7+x2:x3+x2:x4+x2:x5+x2:x6+x2:x7+x3:x4+x3:x5+x3:x6+x3:x7+x4:x5+x4:x6+x4:x7+x5:x6+x5:x7+x6:x7,data=des)
-qmod<-lm(y~x1+x2+x3+x4+x5+x6+x7+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+I(x5^2)+I(x6^2)+I(x7^2)+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x1:x7+x2:x3+x2:x4+x2:x5+x2:x6+x2:x7+x3:x4+x3:x5+x3:x6+x3:x7+x4:x5+x4:x6+x4:x7+x5:x6+x5:x7+x6:x7,data=des)
+lmod<-stats::lm(y~x1+x2+x3+x4+x5+x6+x7,data=des)
+imod<-stats::lm(y~x1+x2+x3+x4+x5+x6+x7+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x1:x7+x2:x3+x2:x4+x2:x5+x2:x6+x2:x7+x3:x4+x3:x5+x3:x6+x3:x7+x4:x5+x4:x6+x4:x7+x5:x6+x5:x7+x6:x7,data=des)
+qmod<-stats::lm(y~x1+x2+x3+x4+x5+x6+x7+I(x1^2)+I(x2^2)+I(x3^2)+I(x4^2)+I(x5^2)+I(x6^2)+I(x7^2)+x1:x2+x1:x3+x1:x4+x1:x5+x1:x6+x1:x7+x2:x3+x2:x4+x2:x5+x2:x6+x2:x7+x3:x4+x3:x5+x3:x6+x3:x7+x4:x5+x4:x6+x4:x7+x5:x6+x5:x7+x6:x7,data=des)
              
 #get the design matrix and fX
  if(mod==0) {
-X<-model.matrix(lmod)
+X<-stats::model.matrix(lmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
-X6<-runif(5000,-1,1)
-X7<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
+X6<-stats::runif(5000,-1,1)
+X7<-stats::runif(5000,-1,1)
 fX<-cbind(Int,X1,X2,X3,X4,X5,X6,X7)
              }
 
  if(mod==1)  {
-X<-model.matrix(imod)
+X<-stats::model.matrix(imod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
-X6<-runif(5000,-1,1)
-X7<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
+X6<-stats::runif(5000,-1,1)
+X7<-stats::runif(5000,-1,1)
 X1X2<-X1*X2
 X1X3<-X1*X3
 X1X4<-X1*X4
@@ -391,16 +391,16 @@ X6X7<-X6*X7
 fX<-cbind(Int,X1,X2,X3,X4,X5,X6,X7,X1X2,X1X3,X1X4,X1X5,X1X6,X1X7,X2X3,X2X4,X2X5,X2X6,X2X7,X3X4,X3X5,X3X6,X3X7,X4X5,X4X6,X4X7,X5X6,X5X7,X6X7)
             }
  if(mod==2) {
-X<-model.matrix(qmod)
+X<-stats::model.matrix(qmod)
 XtXI<-solve(t(X)%*%X)
 Int<-c(rep(1,5000))
-X1<-runif(5000,-1,1)
-X2<-runif(5000,-1,1)
-X3<-runif(5000,-1,1)
-X4<-runif(5000,-1,1)
-X5<-runif(5000,-1,1)
-X6<-runif(5000,-1,1)
-X7<-runif(5000,-1,1)
+X1<-stats::runif(5000,-1,1)
+X2<-stats::runif(5000,-1,1)
+X3<-stats::runif(5000,-1,1)
+X4<-stats::runif(5000,-1,1)
+X5<-stats::runif(5000,-1,1)
+X6<-stats::runif(5000,-1,1)
+X7<-stats::runif(5000,-1,1)
 X1sq<-X1*X1
 X2sq<-X2*X2
 X3sq<-X3*X3
@@ -440,7 +440,7 @@ vi<-sort(v)
 fs<-(1:length(vi))/length(vi)
 # make FDS Plot
 plot(fs,vi,type='l',ylim=c(0.0,(max(vi)+.15)),xlab="Fraction of Space",ylab="Relative Prediction Variance")
-abline(v=.5,lty=3)
-abline(h=(vi[2500]+vi[2501])/2,lty=3)
+graphics::abline(v=.5,lty=3)
+graphics::abline(h=(vi[2500]+vi[2501])/2,lty=3)
 }
 
