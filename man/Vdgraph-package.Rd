@@ -14,12 +14,12 @@ The function \code{Vdgraph(des)} creates the variance dispersion graph of the re
 \tabular{ll}{
 Package: \tab Vdgraph\cr
 Type: \tab Package\cr
-Version: \tab 1.0-1\cr
-Date: \tab 2014-05-29\cr
+Version: \tab 2.2-7\cr
+Date: \tab 2023-09-08\cr
 License: \tab GPL2.0\cr
 Dependencies: \tab \cr
 LazyLoad: \tab yes\cr
-Packaged: \tab 2014-05-29 19:54:07 UTC; Lawson\cr
+Packaged: \tab 2023-09-08 19:54:07 UTC; Lawson\cr
 Built: \tab R 3.0.2; i386-pc-mingw32; 2011-03-22 19:54:08 UTC; windows\cr
 }
 

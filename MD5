@@ -1,4 +1,4 @@
-df313d51f2e0154435358a43342ebae5 *DESCRIPTION
+4ad5f9d7c79c49f61378c40c9cb04ce3 *DESCRIPTION
 6ef1aab97ae258893c1694ccc880dd73 *NAMESPACE
 3883b9ceff8158e043b93c9d1036ecda *R/Compare2FDS.R
 a1a80dd5befa2a80d13e3c86b8efdd71 *R/Compare2Vdg.R
@@ -39,7 +39,7 @@ d9b65b368fa3ad232c124bb47b622abe *man/SCDH4.Rd
 41d4b74c11414654b64fd75f41c61958 *man/SCDH5.Rd
 0a94b5c6bb2baca68c79e17287bbe7aa *man/SCDH6.Rd
 86407a8ba095df949a4036bda6faaedf *man/Vardsgr.Rd
-ae0e282615e4c2f71d4b44e02c674b3c *man/Vdgraph-package.Rd
+0a4bbbd1e249195a4147bc0efef27772 *man/Vdgraph-package.Rd
 f79e32a138a9be9b70df801095930e50 *man/Vdgraph.Rd
 2088a20c6084c758558fe4ceefe21a41 *man/f.Rd
 2789121fdd75402ae74a702a735d919e *man/mx.Rd
